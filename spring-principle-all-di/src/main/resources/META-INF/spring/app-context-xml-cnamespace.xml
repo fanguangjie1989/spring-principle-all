@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="configurableMessageProvider" class="spring.base.principle.di.xml.ConfigurableMessageProvider">
+		<constructor-arg name="message" type="java.lang.String" value="configurableMessageProvider ... constructor-arg" />
+	</bean>
+	
+	<bean id="configurableMessageProviderCnamespace" class="spring.base.principle.di.xml.ConfigurableMessageProvider" c:message="configurableMessageProvider ... namespace" />
+
+</beans>

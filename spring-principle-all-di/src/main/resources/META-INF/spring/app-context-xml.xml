@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="helloWorldMessageProvider" class="spring.base.principle.di.xml.HelloWorldMessageProvider" />
+	<bean id="standardOutMessageRenderer" class="spring.base.principle.di.xml.StandardOutMessageRenderer">
+		<property name="messageProvider" ref="helloWorldMessageProvider" />
+	</bean>
+	<bean id="configurableMessageProvider"
+		class="spring.base.principle.di.xml.ConfigurableMessageProvider">
+		<constructor-arg name="message" value="configurableMessageProvider..." />
+	</bean>
+
+	<bean id="injectCollection" class="spring.base.principle.di.xml.CollectionInjection">
+		<property name="map">
+			<map>
+				<entry key="helloMessage">
+					<value>Hello World!</value>
+				</entry>
+				<entry key="hiMessage">
+					<value>Hi World!</value>
+				</entry>
+			</map>
+		</property>
+		<property name="props">
+			<props>
+				<prop key="firstName">Fan</prop>
+				<prop key="secondName">GuangJie</prop>
+			</props>
+		</property>
+		<property name="set">
+			<set>
+				<value>1</value>
+				<value>2</value>
+			</set>
+		</property>
+		
+		<property name="list">
+			<list>
+				<value>3</value>
+				<value>4</value>
+			</list>
+		</property>
+	</bean>
+</beans>

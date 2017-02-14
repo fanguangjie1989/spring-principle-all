@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 
+		spring中使用parent属性来减少配置
+		abstract="true" 
+		parentexample 不会被创建，类似于于抽象类
+		例如多个数据源配置
+	 -->
+	
+	<bean id="parentexample" class="spring.base.principle.di.xml.InheritanceExample"
+		abstract="true" p:name="parent" p:age="40" />
+	<bean id="childexample1" class="spring.base.principle.di.xml.InheritanceExample"
+		parent="parentexample" p:age="20" />
+	<bean id="childexample2" class="spring.base.principle.di.xml.InheritanceExample"
+		parent="parentexample" p:age="22" />
+
+</beans>
